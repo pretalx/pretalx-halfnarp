@@ -85,8 +85,8 @@ jobs:
       - name: Run black
         run: black --check .
         working-directory: .
-  djhtml:
-    name: djhtml
+  djangofmt:
+    name: djangofmt
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -105,9 +105,11 @@ jobs:
       - name: Install pretalx
         run: pip3 install pretalx
       - name: Install Dependencies
-        run: pip3 install djhtml -Ue .
-      - name: Run docformatter
-        run: find -name "*.html" | xargs djhtml -c
+        run: pip3 install djangofmt -Ue .
+      - name: Run djangofmt
+        run: |
+          djangofmt .
+          git diff --exit-code -- '*.html'
         working-directory: .
 #  packaging:
 #    name: packaging

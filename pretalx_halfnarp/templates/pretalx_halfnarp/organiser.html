@@ -4,13 +4,13 @@
 {% load static %}
 
 {% block stylesheets %}
-    <link rel="stylesheet" type="text/css" href="{% static "pretalx_halfnarp/organiser.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'pretalx_halfnarp/organiser.css' %}">
 {% endblock %}
 
 {% block content %}
     <div class="title">
         <h2>{% translate "Most Preferred Submissions" %}</h2>
-        <a class="btn btn-info" href="{% url "plugins:pretalx_halfnarp:frontend" request.event.slug %}" target="_blank">
+        <a class="btn btn-info" href="{% url 'plugins:pretalx_halfnarp:frontend' request.event.slug %}" target="_blank">
             <i class="fa fa-external-link" aria-hidden="true"></i>
             {% translate "Link to Vote-Page" %}
         </a>
@@ -25,12 +25,12 @@
             <div class="submission card mb-3">
                 <div class="card-body">
                     <div class="card-title headline">
-                        <h2 class="title">{{info.submission.title}}</h2>
-                        <span class="counter">Votes: {{info.count}}/{{num_preferences}}</span>
+                        <h2 class="title">{{ info.submission.title }}</h2>
+                        <span class="counter">Votes: {{ info.count }}/{{ num_preferences }}</span>
                     </div>
-                    <p class="speakers">{{info.submission.display_speaker_names}}</p>
+                    <p class="speakers">{{ info.submission.display_speaker_names }}</p>
                     <div class="footer">
-                        <div class="track">Track: <span class="track">{{info.submission.track}}</span></div>
+                        <div class="track">Track: <span class="track">{{ info.submission.track }}</span></div>
                         <a href="{{info.submission.orga_urls.base}}" target="_blank">{% translate "More info" %}</a>
                     </div>
                 </div>
