@@ -23,5 +23,5 @@ class Migration(migrations.Migration):
                 ("modified", models.DateTimeField(auto_now=True, null=True)),
                 ("preferred_submissions", models.TextField()),
             ],
-        ),
+        )
     ]

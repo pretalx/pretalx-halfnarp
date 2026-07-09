@@ -23,10 +23,10 @@ class PluginApp(AppConfig):
         version = __version__
         category = "FEATURE"
         settings_links = [
-            (gettext_lazy("Settings"), "plugins:pretalx_halfnarp:settings", {}),
+            (gettext_lazy("Settings"), "plugins:pretalx_halfnarp:settings", {})
         ]
         navigation_links = [
-            (gettext_lazy("Dashboard"), "plugins:pretalx_halfnarp:organiser", {}),
+            (gettext_lazy("Dashboard"), "plugins:pretalx_halfnarp:organiser", {})
         ]
 
     def ready(self):

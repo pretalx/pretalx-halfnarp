@@ -3,14 +3,13 @@ import datetime as dt
 import pytest
 from django.core import management
 from django_scopes import scopes_disabled
+from pretalx_halfnarp.models import Preference
 
 from pretalx.event.domain.event import initialise_event
 from pretalx.event.domain.plugins import enable_plugin
 from pretalx.event.models import Event, Organiser, Team
 from pretalx.person.models import SpeakerProfile, User
 from pretalx.submission.models import Submission, SubmissionStates
-
-from pretalx_halfnarp.models import Preference
 
 
 @pytest.fixture(scope="session", autouse=True)

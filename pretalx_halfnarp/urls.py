@@ -1,4 +1,5 @@
 from django.urls import re_path
+
 from pretalx.event.models.event import SLUG_CHARS
 
 from .views import frontend, frontend_preferences_api, organiser

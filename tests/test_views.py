@@ -5,13 +5,12 @@ import pytest
 from django.test import RequestFactory
 from django.urls import reverse
 from django_scopes import scopes_disabled
-
-from pretalx.schedule.domain.release import freeze_schedule
-
 from pretalx_halfnarp.models import Preference
 from pretalx_halfnarp.views import HASH_COOKIE
 from pretalx_halfnarp.views.frontend import FrontendView
 from pretalx_halfnarp.views.organiser import OrganiserView
+
+from pretalx.schedule.domain.release import freeze_schedule
 
 
 @pytest.mark.django_db

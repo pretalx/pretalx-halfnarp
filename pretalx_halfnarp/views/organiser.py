@@ -4,9 +4,9 @@ from django.urls import reverse
 from django.utils.functional import cached_property
 from django.views.generic import FormView, TemplateView
 from django_context_decorator import context
+
 from pretalx.common.views.mixins import EventPermissionRequired
 from pretalx.submission.models import Submission
-
 from pretalx_halfnarp.forms import HalfnarpSettingsForm
 from pretalx_halfnarp.models import Preference
 
@@ -19,9 +19,7 @@ class HalfnarpSettingsView(EventPermissionRequired, FormView):
     def get_success_url(self) -> str:
         return reverse(
             "plugins:pretalx_halfnarp:settings",
-            kwargs={
-                "event": self.request.event.slug,
-            },
+            kwargs={"event": self.request.event.slug},
         )
 
     def get_form_kwargs(self):

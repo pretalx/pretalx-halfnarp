@@ -1,7 +1,6 @@
 import pytest
 from django.test import RequestFactory
 from django.urls import reverse
-
 from pretalx_halfnarp.signals import navbar_info, navbar_info_settings
 
 

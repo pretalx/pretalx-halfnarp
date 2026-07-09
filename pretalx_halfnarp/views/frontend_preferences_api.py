@@ -1,10 +1,10 @@
 import jsonschema
 from django.http import JsonResponse
-from pretalx.cfp.views.event import EventPageMixin
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from pretalx.cfp.views.event import EventPageMixin
 from pretalx_halfnarp.models import Preference
 from pretalx_halfnarp.views import HASH_COOKIE
 
@@ -58,12 +58,7 @@ def validate_preferences_data(request_data):
     schema = {
         "type": "object",
         "properties": {
-            "preferred_submissions": {
-                "type": "array",
-                "items": {
-                    "type": "number",
-                },
-            },
+            "preferred_submissions": {"type": "array", "items": {"type": "number"}}
         },
         "required": ["preferred_submissions"],
     }

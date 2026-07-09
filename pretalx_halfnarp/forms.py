@@ -2,6 +2,7 @@ from django.forms import DateField
 from django.utils.translation import gettext_lazy as _
 from hierarkey.forms import HierarkeyForm
 from i18nfield.forms import I18nFormMixin
+
 from pretalx.common.forms.widgets import HtmlDateInput
 
 

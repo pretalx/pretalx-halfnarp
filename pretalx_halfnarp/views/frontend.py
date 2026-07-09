@@ -6,9 +6,9 @@ from datetime import datetime, timedelta
 from django.utils import timezone
 from django.views.generic import TemplateView
 from django_context_decorator import context
+
 from pretalx.cfp.views.event import EventPageMixin
 from pretalx.submission.models import SubmissionStates
-
 from pretalx_halfnarp.models import Preference
 from pretalx_halfnarp.views import HASH_COOKIE
 

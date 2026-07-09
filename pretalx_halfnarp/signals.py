@@ -1,6 +1,7 @@
 from django.dispatch import receiver
 from django.urls import resolve, reverse
 from django.utils.translation import gettext_lazy as _
+
 from pretalx.orga.signals import nav_event, nav_event_settings
 
 
@@ -16,9 +17,7 @@ def navbar_info_settings(sender, request, **kwargs):
             "icon": "thumbs-up",
             "url": reverse(
                 "plugins:pretalx_halfnarp:organiser",
-                kwargs={
-                    "event": request.event.slug,
-                },
+                kwargs={"event": request.event.slug},
             ),
             "active": url.namespace == "plugins:pretalx_halfnarp"
             and url.url_name == "organiser",
@@ -38,9 +37,7 @@ def navbar_info(sender, request, **kwargs):
             "label": _("Halfnarp"),
             "url": reverse(
                 "plugins:pretalx_halfnarp:settings",
-                kwargs={
-                    "event": request.event.slug,
-                },
+                kwargs={"event": request.event.slug},
             ),
             "active": url.namespace == "plugins:pretalx_halfnarp"
             and url.url_name == "settings",
