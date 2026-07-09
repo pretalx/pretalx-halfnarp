@@ -1,6 +1,10 @@
 Halfnarp for pretalx
 ====================
 
+.. image:: https://img.shields.io/pypi/v/pretalx-halfnarp.svg
+   :target: https://pypi.org/project/pretalx-halfnarp/
+   :alt: PyPI version
+
 This is a plugin for `pretalx`_ that helps you to estimate the interest in your submissions and plan
 room-sizes accordingly by scheduling the most requested submissions into the larger rooms.
 
@@ -14,6 +18,20 @@ Halfnarp is an anagram of Fahrplan, a not-yet sorted Fahrplan.
 |frontend|
 
 |backend|
+
+Installation
+------------
+
+Install the plugin with pip, in the same environment as your pretalx
+installation::
+
+    (env)$ python -m pip install pretalx-halfnarp
+
+Afterwards, run ``migrate`` and ``rebuild`` and restart your pretalx services,
+just like after any pretalx update (see `performing updates`_ in the
+administrator documentation).
+
+You can then enable the plugin under "Settings → Plugins" in your event settings.
 
 Development setup
 -----------------
@@ -72,6 +90,7 @@ Released under the terms of the Apache License 2.0
 .. _pretalx development setup: https://docs.pretalx.org/en/latest/developer/setup.html
 .. _just: https://just.systems/
 .. _uv: https://docs.astral.sh/uv/
+.. _performing updates: https://docs.pretalx.org/administrator/maintenance/#performing-updates
 .. |frontend| image:: https://raw.githubusercontent.com/pretalx/pretalx-halfnarp/main/assets/frontend.png
    :alt: Screenshot of the halfnarp voting interface
 .. |backend| image:: https://raw.githubusercontent.com/pretalx/pretalx-halfnarp/main/assets/backend.png
