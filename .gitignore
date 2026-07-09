@@ -47,6 +47,7 @@ coverage.xml
 .hypothesis/
 
 # Translations
+*.mo
 *.pot
 
 # Django stuff:
@@ -54,13 +55,35 @@ coverage.xml
 
 # Sphinx documentation
 docs/_build/
+*.toc
 
-# PyBuilder
-target/
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
 
-#Ipython Notebook
-.ipynb_checkpoints
+# editors
+*.swp
+*.aux
+*~
+.project
+.pydevproject
+.vscode
 
-pretalx_halfnarp/locale/**/*.mo
+# IDEA / pycharm
+.idea/
+atlassian-ide-plugin.xml
 
-.direnv/
+# generic local files
+local/
+*.xml
+pretalx.cfg
+locale/
+
+# OS X
+.DS_Store
+
+.pytest_cache
+uv.lock

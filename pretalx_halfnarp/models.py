@@ -14,6 +14,9 @@ class Preference(models.Model):
     class Meta:
         unique_together = (("hash", "event"),)
 
+    def __str__(self):
+        return f"Preference({self.hash})"
+
     @property
     def preferred_submission_ids(self):
         if self.preferred_submissions:

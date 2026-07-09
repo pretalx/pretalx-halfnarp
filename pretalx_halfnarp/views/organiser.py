@@ -7,6 +7,7 @@ from django_context_decorator import context
 
 from pretalx.common.views.mixins import EventPermissionRequired
 from pretalx.submission.models import Submission
+
 from pretalx_halfnarp.forms import HalfnarpSettingsForm
 from pretalx_halfnarp.models import Preference
 

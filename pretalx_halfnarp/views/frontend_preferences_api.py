@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from pretalx.cfp.views.event import EventPageMixin
+
 from pretalx_halfnarp.models import Preference
 from pretalx_halfnarp.views import HASH_COOKIE
 

@@ -1,52 +1,44 @@
 [project]
 name = "pretalx-halfnarp"
 dynamic = ["version"]
-description = """
-Pretalx-Halfnarp is a Plugin that helps you to estimate the interest in
-your submissions and plan room-sizes accordingly by scheduling the most
-requested submissions into the larger rooms. It can also help you avoid
-overlaps by correlating submissions that are preferred by the same
-people so that you can plan them at different times.
-
-Halfnarp is an anagram of Fahrplan, a not-yet sorted Fahrplan"""
+description = "Estimate the interest in your sessions and plan room sizes accordingly."
 readme = "README.rst"
 license = {text = "Apache Software License"}
 keywords = ["pretalx"]
 authors = [
-    {name = "Peter Körner", email = "pkoerner@seibert-media.net"},
-    {name = "Franziska Kunsmann", email = "fkunsmann@seibert-media.net"},
+  {name = "Peter Körner", email = "pkoerner@seibert-media.net"},
+  {name = "Franziska Kunsmann", email = "fkunsmann@seibert-media.net"},
 ]
 maintainers = [
-    {name = "Franziska Kunsmann", email = "fkunsmann@seibert-media.net"},
+  {name = "Franziska Kunsmann", email = "fkunsmann@seibert-media.net"},
+  {name = "Tobias Kunze", email = "r@rixx.de"},
 ]
 
+requires-python = ">=3.11"
 dependencies = [
-    "jsonschema==4.26.0",
-    "jsonschema-specifications==2025.9.1",
+  "jsonschema==4.26.0",
+  "jsonschema-specifications==2025.9.1",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "djangofmt",
-    "pytest",
-    "pytest-cov",
-    "pytest-django",
-    "ruff",
+  "djangofmt",
+  "pytest",
+  "pytest-cov",
+  "pytest-django",
+  "ruff",
 ]
+
+[project.urls]
+homepage = "https://github.com/pretalx/pretalx-halfnarp"
+repository = "https://github.com/pretalx/pretalx-halfnarp.git"
 
 [project.entry-points."pretalx.plugin"]
 pretalx_halfnarp = "pretalx_halfnarp:PretalxPluginMeta"
 
-[project.entry-points."distutils.commands"]
-build = "pretalx_plugin_build.build:CustomBuild"
-
 [build-system]
 build-backend = "setuptools.build_meta"
-requires = ["setuptools", "wheel"]
-
-[project.urls]
-homepage = "https://github.com/seibert-media/pretalx-halfnarp"
-repository = "https://github.com/seibert-media/pretalx-halfnarp.git"
+requires = ["setuptools"]
 
 [tool.setuptools]
 include-package-data = true
@@ -56,7 +48,6 @@ version = {attr = "pretalx_halfnarp.__version__"}
 
 [tool.setuptools.packages.find]
 include = ["pretalx*"]
-namespaces = false
 
 [tool.check-manifest]
 ignore = [".*", "tests/*", "justfile"]
@@ -64,6 +55,7 @@ ignore = [".*", "tests/*", "justfile"]
 [tool.pytest.ini_options]
 DJANGO_SETTINGS_MODULE = "pretalx.common.settings.test_settings"
 django_find_project = false
+testpaths = "tests"
 addopts = "--cov=pretalx_halfnarp --cov-report=term-missing:skip-covered --cov-config=pyproject.toml"
 
 [tool.coverage.run]
@@ -80,4 +72,66 @@ exclude_also = [
   "NOQA",
   "noqa",
   "NotImplementedError",
+]
+
+[tool.ruff.format]
+skip-magic-trailing-comma = true
+
+[tool.ruff.lint]
+select = ["ALL"]
+ignore = [
+  "ANN",     # We do not do annotations
+  "ARG",     # Unused method arguments are often ok
+  "C901",    # We do do complexity
+  "COM812",  # Trailing commas are formatter territory
+  "D",       # We do not enforce docstyles
+  "DJ001",   # We live in a state of sin
+  "E501",    # Long lines are formatter territory
+  "EM",      # Formatting strings is fine, actually
+  "FBT",     # Booleans are fine, actually
+  "FIX",     # TODO comments are fine, actually
+  "PLR",     # Refactoring: Too many branches, arguments, statements, etc
+  "RET502",  # Just returning is fine, actually
+  "RET503",  # Just not returning is fine, actually
+  "RUF012",  # Mutable default in class attribute is just how django rolls
+  "RUF100",  # Unused noqa; problematic when run in isolation
+  "TRY003",  # Error messages are fine, actually
+]
+allowed-confusables = ["–", "'", "×"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**.py" = [
+  "DTZ",     # TODO: do not use naive datetimes in tests
+  "INP001",  # Tests don't need __init__.py
+  "RUF",     # Ignore ambiguous characters in tests, may be security tests
+  "S",       # Tests do not need cryptographic randomness and other security features
+  "S101",    # Ignore `assert` rules in tests
+  "SLF001",  # TODO: remove SLF001, fix private access
+  "TRY",     # Exception handling is special in tests
+]
+
+[tool.ruff.lint.flake8-pytest-style]
+parametrize-values-type = "tuple"
+
+[tool.ruff.lint.flake8-self]
+extend-ignore-names = ["_base_manager", "_default_manager",  "_meta"]
+
+[tool.ruff.lint.isort]
+split-on-trailing-comma = false
+section-order = ["future", "standard-library", "third-party", "pretalx", "first-party", "local-folder"]
+
+[tool.ruff.lint.isort.sections]
+pretalx = ["pretalx"]
+
+[tool.ruff.lint.pep8-naming]
+extend-ignore-names = [
+  "allDay",
+  "api_urls",
+  "EventSettings",
+  "extendMarkdown",
+  "get_allDay",
+  "orga_urls",
+  "SendMailException",
+  "setUpTestData",
+  "urls",
 ]

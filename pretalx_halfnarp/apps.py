@@ -30,10 +30,10 @@ class PluginApp(AppConfig):
         ]
 
     def ready(self):
-        import datetime  # NOQA
+        import datetime  # noqa: PLC0415
 
-        from pretalx.common.models.settings import hierarkey  # NOQA
+        from pretalx.common.models.settings import hierarkey  # noqa: PLC0415
 
         hierarkey.add_default("halfnarp_allow_voting_until", None, datetime.date)
 
-        from . import signals  # NOQA
+        from . import signals  # noqa: F401, PLC0415

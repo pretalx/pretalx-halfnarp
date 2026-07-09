@@ -1,10 +1,6 @@
 Halfnarp for pretalx
 ====================
 
-.. image:: https://raw.githubusercontent.com/pretalx/pretalx-halfnarp/python-coverage-comment-action-data/badge.svg
-   :target: https://htmlpreview.github.io/?https://github.com/pretalx/pretalx-halfnarp/blob/python-coverage-comment-action-data/htmlcov/index.html
-   :alt: Coverage
-
 This is a plugin for `pretalx`_ that helps you to estimate the interest in your submissions and plan
 room-sizes accordingly by scheduling the most requested submissions into the larger rooms.
 

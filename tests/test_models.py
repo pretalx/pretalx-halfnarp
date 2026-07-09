@@ -1,5 +1,6 @@
 import pytest
 from django_scopes import scopes_disabled
+
 from pretalx_halfnarp.models import Preference
 
 

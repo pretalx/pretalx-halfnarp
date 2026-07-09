@@ -9,6 +9,7 @@ from django_context_decorator import context
 
 from pretalx.cfp.views.event import EventPageMixin
 from pretalx.submission.models import SubmissionStates
+
 from pretalx_halfnarp.models import Preference
 from pretalx_halfnarp.views import HASH_COOKIE
 
@@ -40,7 +41,7 @@ class FrontendView(EventPageMixin, TemplateView):
                 state__in=[SubmissionStates.ACCEPTED, SubmissionStates.CONFIRMED]
             )
         )
-        random.Random(self.halfnarp_hash).shuffle(submissions)
+        random.Random(self.halfnarp_hash).shuffle(submissions)  # noqa: S311  -- cosmetic
         return submissions
 
     @context
