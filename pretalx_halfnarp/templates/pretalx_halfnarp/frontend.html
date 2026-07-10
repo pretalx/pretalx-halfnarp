@@ -30,9 +30,7 @@
             {% for submission in submissions %}
                 <div
                     class="submission{% if submission.id in preferred_submissions %} preferred{% endif %}"
-                    {% if submission.track %}
-                        style="--track-color: {{ submission.track.color }}"
-                    {% endif %}
+                    {% if submission.track %}style="--track-color: {{ submission.track.color }}"{% endif %}
                     data-id="{{submission.id}}"
                 >
                     <div class="headline">
