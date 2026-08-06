@@ -8,9 +8,9 @@
 {% endblock %}
 
 {% block content %}
-    <div class="heading-with-buttons mb-2">
+    <div class="page-heading">
         <h2>{% translate "Most Preferred Submissions" %}</h2>
-        <div class="buttons">
+        <div class="page-heading-buttons">
             <a
                 class="btn btn-info"
                 href="{% url 'plugins:pretalx_halfnarp:frontend' request.event.slug %}"
