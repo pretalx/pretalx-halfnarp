@@ -39,7 +39,7 @@ class FrontendView(EventPageMixin, TemplateView):
         submissions = list(
             self.request.event.submissions.filter(
                 state__in=[SubmissionStates.ACCEPTED, SubmissionStates.CONFIRMED]
-            )
+            ).with_sorted_speakers()
         )
         random.Random(self.halfnarp_hash).shuffle(submissions)  # noqa: S311  -- cosmetic
         return submissions
