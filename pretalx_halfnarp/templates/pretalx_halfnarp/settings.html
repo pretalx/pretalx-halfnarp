@@ -4,5 +4,16 @@
 
 {% block content %}
     <h2 class="page-heading">{% translate "Halfnarp Settings" %}</h2>
+    {% if not public_review_enabled %}
+        <div class="alert alert-warning">
+            <div>
+                {% blocktranslate trimmed with url=request.event.cfp.urls.text %}
+                    Turn on the “Allow submitters to share their proposal publicly” option in your
+                    <a href="{{ url }}">CfP settings</a>. Otherwise, the “More info” links on the public voting page
+                    will not work.
+                {% endblocktranslate %}
+            </div>
+        </div>
+    {% endif %}
     {% include "orga/includes/base_form.html" %}
 {% endblock %}

@@ -36,6 +36,11 @@ class HalfnarpSettingsView(EventPermissionRequired, FormView):
         form.save()
         return super().form_valid(form)
 
+    @context
+    @cached_property
+    def public_review_enabled(self):
+        return self.request.event.get_feature_flag("submission_public_review")
+
 
 class OrganiserView(EventPermissionRequired, TemplateView):
     permission_required = "submission.orga_list_submission"
