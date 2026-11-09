@@ -31,7 +31,7 @@
                 <div
                     class="submission{% if submission.id in preferred_submissions %} preferred{% endif %}"
                     {% if submission.track %}style="--track-color: {{ submission.track.color }}"{% endif %}
-                    data-id="{{submission.id}}"
+                    data-id="{{ submission.id }}"
                 >
                     <div class="headline">
                         <h2 class="title">{{ submission.title }}</h2>
@@ -54,7 +54,7 @@
                                 &nbsp;
                             {% endif %}
                         </div>
-                        <a href="{{submission.urls.review}}" target="_blank">{% translate "More info" %}</a>
+                        <a href="{{ submission.urls.review }}" target="_blank">{% translate "More info" %}</a>
                     </div>
                 </div>
             {% empty %}
